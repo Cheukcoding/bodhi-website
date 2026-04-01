@@ -68,7 +68,7 @@
       .hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 48px; }
       .hero-text { max-width: 540px; }
       .hero-actions { justify-content: center; }
-      .iphone { width: 240px; }
+      .iphone { width: min(240px, 60vw); }
     }
 
     /* Section basics */
@@ -109,6 +109,7 @@
     @media (max-width: 768px) {
       .draw-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
       .draw-features { align-items: center; }
+      .demo-card { width: min(280px, 70vw); height: auto; aspect-ratio: 0.72; }
     }
 
     /* Interactive card demo */
@@ -195,7 +196,11 @@
     }
     .level-seg:hover .seg-name { max-width: 140px; opacity: 1; }
     .levels-caption { text-align: center; margin-top: 16px; font-family: var(--serif); font-style: italic; font-size: 0.82rem; color: var(--muted); }
-    @media (max-width: 600px) { .levels-bar { height: 44px; } .level-seg .seg-num { font-size: 0.7rem; } }
+    @media (max-width: 600px) {
+      .levels-bar { height: 40px; gap: 2px; }
+      .level-seg .seg-num { font-size: 0.65rem; }
+      .level-seg .seg-name { font-size: 0.5rem; }
+    }
 
     /* Quote — rotating with fade */
     .quote-section { background: var(--parchment); text-align: center; padding: 100px 28px; position: relative; overflow: hidden; }
@@ -254,7 +259,11 @@
     .feat-label { margin-top: 20px; }
     .feat-label h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--deep-brown); margin-bottom: 6px; }
     .feat-label p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-    @media (max-width: 600px) { .features-duo { grid-template-columns: 1fr; gap: 48px; } .feat-phone { width: 210px; } }
+    @media (max-width: 600px) {
+      .features-duo { grid-template-columns: 1fr; gap: 48px; }
+      .feat-phone { width: min(240px, 60vw); }
+      .feat-screen { padding: 16px 10px; }
+    }
 
     /* Jewels animation — matching app proportions */
     .jewels-title { font-family: var(--serif); font-weight: 600; font-size: 1rem; color: var(--deep-brown); text-align: center; margin-bottom: 2px; }
