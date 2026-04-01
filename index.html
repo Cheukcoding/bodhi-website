@@ -64,7 +64,6 @@
     @keyframes phoneFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
     .iphone-screen { width: 100%; aspect-ratio: 9/19.5; border-radius: 35px; overflow: hidden; background: var(--sand); }
     .iphone-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .iphone-island { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 80px; height: 22px; background: #2a2724; border-radius: 14px; z-index: 2; }
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 48px; }
       .hero-text { max-width: 540px; }
@@ -239,24 +238,52 @@
     .teaching-card .tradition { font-family: var(--sans); font-size: 0.6rem; color: var(--text-hint); }
     @media (max-width: 768px) { .teachings-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; } }
 
-    /* More Features — two phones side by side */
+    /* More Features — interactive demos */
     .more-features { background: var(--cream); }
-    .features-duo { max-width: 700px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .features-duo { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
     .feat-item { text-align: center; }
     .feat-phone {
-      width: 220px; margin: 0 auto; position: relative; border-radius: 32px; padding: 5px;
+      width: 240px; margin: 0 auto; position: relative; border-radius: 36px; padding: 5px;
       background: linear-gradient(145deg, #e8e4de, #cfc9bf);
       box-shadow: 0 16px 40px rgba(62,39,35,0.1), 0 2px 6px rgba(0,0,0,0.04);
-      transition: all 0.4s;
     }
-    .feat-item:hover .feat-phone { transform: translateY(-6px); box-shadow: 0 24px 56px rgba(62,39,35,0.14); }
-    .feat-screen { width: 100%; aspect-ratio: 9/19.5; border-radius: 28px; overflow: hidden; background: var(--sand); }
-    .feat-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .feat-island { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 68px; height: 18px; background: #2a2724; border-radius: 12px; z-index: 2; }
+    .feat-screen {
+      width: 100%; aspect-ratio: 9/19.5; border-radius: 32px; overflow: hidden;
+      background: var(--sand); padding: 20px 14px;
+    }
     .feat-label { margin-top: 20px; }
     .feat-label h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--deep-brown); margin-bottom: 6px; }
     .feat-label p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-    @media (max-width: 600px) { .features-duo { grid-template-columns: 1fr; gap: 48px; } .feat-phone { width: 200px; } }
+    @media (max-width: 600px) { .features-duo { grid-template-columns: 1fr; gap: 48px; } .feat-phone { width: 210px; } }
+
+    /* Jewels animation */
+    .jewels-title { font-family: var(--serif); font-weight: 600; font-size: 0.9rem; color: var(--deep-brown); text-align: center; margin-bottom: 4px; }
+    .jewels-sub { font-size: 0.55rem; color: var(--text-hint); text-align: center; margin-bottom: 12px; }
+    .jewels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .jewel-slot {
+      aspect-ratio: 0.8; border-radius: 8px; border: 0.5px dashed var(--soft-clay);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+      opacity: 0; transform: translateY(12px) scale(0.9);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: var(--cream);
+    }
+    .jewel-slot.filled { border-style: solid; border-color: rgba(212,201,184,0.5); opacity: 1; transform: none; }
+    .jewel-slot .j-name { font-family: var(--serif); font-weight: 600; font-size: 0.5rem; color: var(--deep-brown); text-align: center; line-height: 1.2; }
+    .jewel-slot .j-sub { font-family: var(--sans); font-size: 0.38rem; color: var(--earth-green); text-align: center; line-height: 1.2; }
+    .jewel-slot.empty { opacity: 0.3; transform: none; border-style: dashed; }
+
+    /* Reflection typewriter */
+    .refl-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .refl-header h4 { font-family: var(--serif); font-weight: 600; font-size: 0.85rem; color: var(--deep-brown); }
+    .refl-header span { font-family: var(--sans); font-size: 0.65rem; color: var(--earth-green); font-weight: 500; }
+    .refl-guide { font-family: var(--serif); font-style: italic; font-size: 0.48rem; color: var(--text-hint); text-align: center; margin-bottom: 10px; }
+    .refl-prompt { font-family: var(--serif); font-style: italic; font-size: 0.52rem; color: var(--warm-amber); text-align: center; margin-bottom: 14px; line-height: 1.5; }
+    .refl-text {
+      font-family: var(--serif); font-size: 0.6rem; color: var(--text-body); line-height: 1.7;
+      min-height: 60px;
+    }
+    .refl-cursor { display: inline-block; width: 1px; height: 0.7em; background: var(--warm-amber); margin-left: 1px; animation: cursorBlink 1s step-end infinite; }
+    @keyframes cursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
     /* CTA */
     .final-cta { background: var(--sand); text-align: center; }
@@ -321,7 +348,7 @@
         </div>
       </div>
       <div class="hero-visual reveal reveal-scale reveal-d2">
-        <div class="iphone"><div class="iphone-island"></div><div class="iphone-screen"><img src="screenshots/02-teaching.png" alt="Bodhi app" /></div></div>
+        <div class="iphone"><div class="iphone-screen"><img src="screenshots/02-teaching.png" alt="Bodhi app" /></div></div>
       </div>
     </div>
   </section>
@@ -467,7 +494,7 @@
     </div>
   </section>
 
-  <!-- More Features — Jewels + Reflection only -->
+  <!-- More Features — interactive demos -->
   <section class="more-features" id="more">
     <div class="section-inner">
       <div class="section-header reveal reveal-up" style="margin-bottom:40px;">
@@ -475,15 +502,40 @@
         <p>Receive, collect, and reflect — the teachings stay with you.</p>
       </div>
       <div class="features-duo">
+        <!-- Jewels — animated collection -->
         <div class="feat-item reveal reveal-left">
-          <div class="feat-phone"><div class="feat-island"></div><div class="feat-screen"><img src="screenshots/03-collection.png" alt="Jewel Collection" /></div></div>
+          <div class="feat-phone">
+            <div class="feat-screen" id="jewelsScreen">
+              <div class="jewels-title">Collection</div>
+              <div class="jewels-sub">8 of 9 teachings received</div>
+              <div class="jewels-grid" id="jewelsGrid">
+                <div class="jewel-slot" data-delay="0"><span class="j-name">Old Photos</span><span class="j-sub">Impermanence</span></div>
+                <div class="jewel-slot" data-delay="100"><span class="j-name">The Sangha</span><span class="j-sub">Community</span></div>
+                <div class="jewel-slot" data-delay="200"><span class="j-name">Dukkha</span><span class="j-sub">Suffering</span></div>
+                <div class="jewel-slot" data-delay="300"><span class="j-name">Anicca</span><span class="j-sub">Impermanence</span></div>
+                <div class="jewel-slot" data-delay="400"><span class="j-name">Anatt&#257;</span><span class="j-sub">Non-Self</span></div>
+                <div class="jewel-slot" data-delay="500"><span class="j-name">Samudaya</span><span class="j-sub">Origin</span></div>
+                <div class="jewel-slot" data-delay="600"><span class="j-name">Nirodha</span><span class="j-sub">Cessation</span></div>
+                <div class="jewel-slot" data-delay="700"><span class="j-name">Magga</span><span class="j-sub">The Path</span></div>
+                <div class="jewel-slot empty" data-delay="850"></div>
+              </div>
+            </div>
+          </div>
           <div class="feat-label">
             <h3>Jewel Collection</h3>
-            <p>Your personal library of wisdom. Save the teachings that speak to you — each one becomes a jewel you carry. Release one to make space for the next.</p>
+            <p>Your personal library of wisdom. Save the teachings that speak to you — each one becomes a jewel you carry.</p>
           </div>
         </div>
+        <!-- Reflection — typewriter -->
         <div class="feat-item reveal reveal-right reveal-d1">
-          <div class="feat-phone"><div class="feat-island"></div><div class="feat-screen"><img src="screenshots/04-reflection.png" alt="Guided Reflection" /></div></div>
+          <div class="feat-phone">
+            <div class="feat-screen" id="reflScreen">
+              <div class="refl-header"><h4>Reflection</h4><span>Done</span></div>
+              <div class="refl-guide">There is no right or wrong. Simply observe what arises.</div>
+              <div class="refl-prompt">"Do you have a sangha?<br/>If not, what would you look for in one?"</div>
+              <div class="refl-text" id="reflText"><span class="refl-cursor"></span></div>
+            </div>
+          </div>
           <div class="feat-label">
             <h3>Guided Reflection</h3>
             <p>Every card carries a contemplative prompt. Write your thoughts freely — a private space to sit with the teaching and let it deepen.</p>
@@ -536,6 +588,47 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
+
+    // Jewels pop-in animation
+    const jewelsObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        document.querySelectorAll('.jewel-slot:not(.empty)').forEach(slot => {
+          const delay = parseInt(slot.dataset.delay) || 0;
+          setTimeout(() => slot.classList.add('filled'), delay);
+        });
+        // Show empty slot last
+        setTimeout(() => {
+          document.querySelector('.jewel-slot.empty').style.opacity = '0.3';
+          document.querySelector('.jewel-slot.empty').style.transform = 'none';
+        }, 900);
+        jewelsObs.unobserve(e.target);
+      });
+    }, { threshold: 0.3 });
+    const jg = document.getElementById('jewelsGrid');
+    if (jg) jewelsObs.observe(jg);
+
+    // Reflection typewriter
+    const reflObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const text = 'I have a sangha. We grow together in this chaotic world.';
+        const el = document.getElementById('reflText');
+        let i = 0;
+        el.innerHTML = '<span class="refl-cursor"></span>';
+        const type = () => {
+          if (i < text.length) {
+            el.innerHTML = text.slice(0, i + 1) + '<span class="refl-cursor"></span>';
+            i++;
+            setTimeout(type, 50 + Math.random() * 40);
+          }
+        };
+        setTimeout(type, 800);
+        reflObs.unobserve(e.target);
+      });
+    }, { threshold: 0.3 });
+    const rs = document.getElementById('reflScreen');
+    if (rs) reflObs.observe(rs);
 
     // Rotating quotes
     const slides = document.querySelectorAll('.quote-slide');
