@@ -198,13 +198,22 @@
     .levels-caption { text-align: center; margin-top: 16px; font-family: var(--serif); font-style: italic; font-size: 0.82rem; color: var(--muted); }
     @media (max-width: 600px) { .levels-bar { height: 44px; } .level-seg .seg-num { font-size: 0.7rem; } }
 
-    /* Quote */
-    .quote-section { background: var(--parchment); text-align: center; padding: 72px 28px; position: relative; overflow: hidden; }
-    .quote-section::before, .quote-section::after { content: '\201C'; position: absolute; font-family: var(--serif); font-size: 12rem; color: var(--soft-clay); opacity: 0.3; line-height: 1; }
-    .quote-section::before { top: -20px; left: 5%; }
-    .quote-section::after { content: '\201D'; bottom: -60px; right: 5%; }
-    .quote-section blockquote { font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.5rem); color: var(--deep-brown); max-width: 600px; margin: 0 auto; line-height: 1.7; position: relative; z-index: 1; }
-    .quote-section cite { display: block; margin-top: 16px; font-family: var(--sans); font-style: normal; font-size: 0.75rem; letter-spacing: 1px; color: var(--warm-amber); position: relative; z-index: 1; }
+    /* Quote — rotating with fade */
+    .quote-section { background: var(--parchment); text-align: center; padding: 100px 28px; position: relative; overflow: hidden; }
+    .quote-section::before, .quote-section::after { content: '\201C'; position: absolute; font-family: var(--serif); font-size: 10rem; color: var(--soft-clay); opacity: 0.2; line-height: 1; }
+    .quote-section::before { top: 10px; left: 8%; }
+    .quote-section::after { content: '\201D'; bottom: -30px; right: 8%; }
+    .quote-inner { position: relative; min-height: 120px; display: flex; align-items: center; justify-content: center; }
+    .quote-slide {
+      position: absolute; max-width: 600px; opacity: 0; transform: translateY(12px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .quote-slide.active { opacity: 1; transform: translateY(0); }
+    .quote-slide blockquote { font-family: var(--serif); font-style: italic; font-size: clamp(1.15rem, 2.2vw, 1.5rem); color: var(--deep-brown); line-height: 1.7; }
+    .quote-slide cite { display: block; margin-top: 14px; font-family: var(--sans); font-style: normal; font-size: 0.72rem; letter-spacing: 1.2px; color: var(--warm-amber); text-transform: uppercase; }
+    .quote-dots { display: flex; justify-content: center; gap: 8px; margin-top: 28px; position: relative; z-index: 1; }
+    .quote-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--soft-clay); cursor: pointer; transition: all 0.3s; }
+    .quote-dot.active { background: var(--warm-amber); transform: scale(1.3); }
 
     /* Teaching cards */
     .teachings { background: var(--sand); }
@@ -395,10 +404,31 @@
     </div>
   </section>
 
-  <!-- Quote -->
+  <!-- Rotating Quotes -->
   <div class="quote-section reveal reveal-scale">
-    <blockquote>&ldquo;The mind is everything.<br/>What you think, you become.&rdquo;</blockquote>
-    <cite>Buddha</cite>
+    <div class="quote-inner" id="quoteInner">
+      <div class="quote-slide active">
+        <blockquote>&ldquo;The mind is everything. What you think, you become.&rdquo;</blockquote>
+        <cite>Buddha</cite>
+      </div>
+      <div class="quote-slide">
+        <blockquote>&ldquo;Peace comes from within. Do not seek it without.&rdquo;</blockquote>
+        <cite>Buddha</cite>
+      </div>
+      <div class="quote-slide">
+        <blockquote>&ldquo;The quieter you become, the more you can hear.&rdquo;</blockquote>
+        <cite>Ram Dass</cite>
+      </div>
+      <div class="quote-slide">
+        <blockquote>&ldquo;Life is available only in the present moment.&rdquo;</blockquote>
+        <cite>Thich Nhat Hanh</cite>
+      </div>
+      <div class="quote-slide">
+        <blockquote>&ldquo;Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.&rdquo;</blockquote>
+        <cite>Buddha</cite>
+      </div>
+    </div>
+    <div class="quote-dots" id="quoteDots"></div>
   </div>
 
   <!-- Teachings -->
@@ -506,6 +536,25 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
+
+    // Rotating quotes
+    const slides = document.querySelectorAll('.quote-slide');
+    const dotsBox = document.getElementById('quoteDots');
+    let currentQ = 0;
+    slides.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'quote-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goQuote(i);
+      dotsBox.appendChild(d);
+    });
+    function goQuote(n) {
+      slides[currentQ].classList.remove('active');
+      dotsBox.children[currentQ].classList.remove('active');
+      currentQ = n;
+      slides[currentQ].classList.add('active');
+      dotsBox.children[currentQ].classList.add('active');
+    }
+    setInterval(() => goQuote((currentQ + 1) % slides.length), 6000);
 
     // Interactive card reveal demo
     let demoOpen = false;
