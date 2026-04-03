@@ -296,6 +296,52 @@
     .refl-cursor { display: inline-block; width: 1.5px; height: 0.8em; background: var(--warm-amber); margin-left: 1px; animation: cursorBlink 1s step-end infinite; vertical-align: text-bottom; }
     @keyframes cursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
+    /* The Path */
+    .the-path { background: var(--parchment); }
+    .path-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .path-visual { display: flex; justify-content: center; }
+    .path-text .path-eyebrow { font-size: 0.65rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-amber); margin-bottom: 14px; }
+    .path-text h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--deep-brown); font-weight: 600; margin-bottom: 6px; line-height: 1.2; }
+    .path-text .path-pali { font-family: var(--serif); font-style: italic; font-size: 0.88rem; color: var(--warm-amber); margin-bottom: 16px; }
+    .path-text > p { color: var(--muted); font-size: 0.92rem; line-height: 1.75; margin-bottom: 20px; }
+    .path-themes { display: flex; flex-direction: column; gap: 14px; margin-top: 16px; }
+    .path-theme { display: flex; gap: 12px; align-items: flex-start; }
+    .path-theme-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(141,110,47,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; color: var(--warm-amber); }
+    .path-theme-info strong { font-family: var(--serif); font-size: 0.92rem; color: var(--deep-brown); display: block; margin-bottom: 2px; }
+    .path-theme-info span { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+    .path-screen-title { font-family: var(--serif); font-weight: 600; font-size: 0.85rem; color: var(--deep-brown); text-align: center; margin-bottom: 1px; }
+    .path-screen-sub { font-family: var(--serif); font-style: italic; font-size: 0.38rem; color: var(--muted); text-align: center; margin-bottom: 14px; }
+    .path-cat { margin-bottom: 10px; }
+    .path-cat-label { font-size: 0.36rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--warm-amber); margin-bottom: 4px; padding-left: 2px; }
+    .path-cat-list { background: var(--cream); border-radius: 8px; border: 0.5px solid rgba(212,201,184,0.4); overflow: hidden; }
+    .path-lesson-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 8px; border-bottom: 0.5px solid rgba(212,201,184,0.25); }
+    .path-lesson-row:last-child { border-bottom: none; }
+    .path-lesson-name { font-family: var(--serif); font-size: 0.46rem; color: var(--deep-brown); }
+    .path-lesson-right { display: flex; align-items: center; gap: 4px; }
+    .path-stage-dots { display: flex; gap: 2px; }
+    .path-stage-dot { width: 3.5px; height: 3.5px; border-radius: 50%; background: var(--soft-clay); transition: background 0.4s, transform 0.4s; }
+    .path-stage-dot.completed { background: var(--warm-amber); transform: scale(1.2); }
+    .path-lesson-chevron { font-size: 0.38rem; color: var(--text-hint); margin-left: 2px; }
+    @media (max-width: 768px) {
+      .path-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .path-themes { align-items: center; }
+      .path-theme { text-align: left; }
+    }
+
+    /* Streak Rewards */
+    .streak-section { background: var(--cream); }
+    .streak-card { max-width: 480px; margin: 0 auto; background: var(--sand); border: 0.5px solid var(--soft-clay); border-radius: 16px; padding: 44px 36px; text-align: center; box-shadow: 0 4px 20px rgba(62,39,35,0.05); }
+    .streak-eyebrow { font-size: 0.6rem; font-weight: 500; letter-spacing: 1.8px; text-transform: uppercase; color: var(--text-hint); margin-bottom: 16px; }
+    .streak-count { font-family: var(--serif); font-weight: 600; font-size: clamp(3rem, 6vw, 4rem); color: var(--warm-amber); line-height: 1; margin-bottom: 4px; }
+    .streak-label { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; }
+    .streak-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; margin: 0 auto 16px; max-width: 180px; }
+    .streak-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--soft-clay); opacity: 0.35; transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .streak-dot.active { background: var(--warm-amber); opacity: 1; transform: scale(1.2); }
+    .streak-milestone { font-family: var(--serif); font-style: italic; font-size: 0.78rem; color: var(--warm-amber); margin-bottom: 6px; }
+    .streak-best { font-size: 0.72rem; color: var(--text-hint); margin-bottom: 20px; }
+    .streak-divider { width: 28px; height: 1.5px; background: var(--soft-clay); margin: 0 auto 20px; }
+    .streak-message { font-family: var(--serif); font-style: italic; font-size: 0.88rem; color: var(--muted); line-height: 1.75; max-width: 360px; margin: 0 auto; }
+
     /* CTA */
     .final-cta { background: var(--sand); text-align: center; }
     .final-cta .buddha-img { width: 80px; height: 80px; margin: 0 auto 24px; opacity: 0.7; animation: breathe 5s ease-in-out infinite; }
@@ -335,6 +381,7 @@
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#levels">Levels</a>
+        <a href="#path">Path</a>
         <a href="#teachings">Teachings</a>
         <a href="#more">More</a>
         <a href="privacy.html">Privacy</a>
@@ -505,6 +552,48 @@
     </div>
   </section>
 
+  <!-- The Path -->
+  <section class="the-path" id="path">
+    <div class="section-inner">
+      <div class="path-inner">
+        <div class="path-visual reveal reveal-left">
+          <div class="feat-phone">
+            <div class="feat-screen" id="pathScreen">
+              <div class="path-screen-title">The Path Through</div>
+              <div class="path-screen-sub">Paṭipadā &mdash; Walk through suffering, not around it</div>
+              <div class="path-cat">
+                <div class="path-cat-label">Loss &amp; Grief</div>
+                <div class="path-cat-list">
+                  <div class="path-lesson-row"><span class="path-lesson-name">The Empty Chair</span><div class="path-lesson-right"><div class="path-stage-dots"><span class="path-stage-dot" data-pd="0"></span><span class="path-stage-dot" data-pd="1"></span><span class="path-stage-dot" data-pd="2"></span><span class="path-stage-dot" data-pd="3"></span><span class="path-stage-dot" data-pd="4"></span></div><span class="path-lesson-chevron">&#8250;</span></div></div>
+                  <div class="path-lesson-row"><span class="path-lesson-name">The End of Love</span><div class="path-lesson-right"><div class="path-stage-dots"><span class="path-stage-dot" data-pd="5"></span><span class="path-stage-dot" data-pd="6"></span><span class="path-stage-dot" data-pd="7"></span><span class="path-stage-dot" data-pd="8"></span><span class="path-stage-dot" data-pd="9"></span></div><span class="path-lesson-chevron">&#8250;</span></div></div>
+                  <div class="path-lesson-row"><span class="path-lesson-name">A Parent's Passing</span><div class="path-lesson-right"><div class="path-stage-dots"><span class="path-stage-dot" data-pd="10"></span><span class="path-stage-dot" data-pd="11"></span><span class="path-stage-dot" data-pd="12"></span><span class="path-stage-dot" data-pd="13"></span><span class="path-stage-dot" data-pd="14"></span></div><span class="path-lesson-chevron">&#8250;</span></div></div>
+                </div>
+              </div>
+              <div class="path-cat">
+                <div class="path-cat-label">Relationships &amp; Trust</div>
+                <div class="path-cat-list">
+                  <div class="path-lesson-row"><span class="path-lesson-name">The Familiar Wound</span><div class="path-lesson-right"><div class="path-stage-dots"><span class="path-stage-dot" data-pd="15"></span><span class="path-stage-dot" data-pd="16"></span><span class="path-stage-dot" data-pd="17"></span><span class="path-stage-dot" data-pd="18"></span><span class="path-stage-dot" data-pd="19"></span></div><span class="path-lesson-chevron">&#8250;</span></div></div>
+                  <div class="path-lesson-row"><span class="path-lesson-name">The Room With No Echo</span><div class="path-lesson-right"><div class="path-stage-dots"><span class="path-stage-dot" data-pd="20"></span><span class="path-stage-dot" data-pd="21"></span><span class="path-stage-dot" data-pd="22"></span><span class="path-stage-dot" data-pd="23"></span><span class="path-stage-dot" data-pd="24"></span></div><span class="path-lesson-chevron">&#8250;</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="path-text reveal reveal-right reveal-d1">
+          <div class="path-eyebrow">The Path</div>
+          <h2>Walk through suffering,<br/>not around it</h2>
+          <div class="path-pali">Paṭipadā</div>
+          <p>Life doesn't pause for healing. The Path offers guided Buddhist lessons for real human struggles &mdash; stories, stages, and reflections rooted in ancient wisdom.</p>
+          <div class="path-themes">
+            <div class="path-theme"><div class="path-theme-icon">&#9825;</div><div class="path-theme-info"><strong>Loss &amp; Grief</strong><span>Process absence with compassion. Grief is love with nowhere to go.</span></div></div>
+            <div class="path-theme"><div class="path-theme-icon">&#9826;</div><div class="path-theme-info"><strong>Relationships &amp; Trust</strong><span>Navigate connection, boundaries, and the wounds that echo.</span></div></div>
+            <div class="path-theme"><div class="path-theme-icon">&#9675;</div><div class="path-theme-info"><strong>Identity &amp; Purpose</strong><span>Find yourself when things fall apart. Rebuild from within.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- More Features — interactive demos -->
   <section class="more-features" id="more">
     <div class="section-inner">
@@ -553,6 +642,26 @@
             <p>Every card carries a contemplative prompt. Write your thoughts freely — a private space to sit with the teaching and let it deepen.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Streak Rewards -->
+  <section class="streak-section">
+    <div class="section-inner">
+      <div class="section-header reveal reveal-up">
+        <h2>Deeper practice, deeper teachings</h2>
+        <p>Consistency reveals what hurrying never will.</p>
+      </div>
+      <div class="streak-card reveal reveal-scale reveal-d1">
+        <div class="streak-eyebrow">Your Journey</div>
+        <div class="streak-count" id="streakCount">0</div>
+        <div class="streak-label">days of continuous practice</div>
+        <div class="streak-grid" id="streakGrid"></div>
+        <div class="streak-milestone">3 days to Tisarana</div>
+        <div class="streak-best">Longest practice: 7 days</div>
+        <div class="streak-divider"></div>
+        <div class="streak-message">Deeper practice reveals deeper teachings.<br/>The longer your streak, the higher your chance of encountering rare, higher-star cards.</div>
       </div>
     </div>
   </section>
@@ -660,6 +769,50 @@
       dotsBox.children[currentQ].classList.add('active');
     }
     setInterval(() => goQuote((currentQ + 1) % slides.length), 6000);
+
+    // Path stage dots animation
+    const pathObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const dots = e.target.querySelectorAll('.path-stage-dot');
+        dots.forEach(dot => {
+          const idx = parseInt(dot.dataset.pd);
+          if (idx <= 7) setTimeout(() => dot.classList.add('completed'), 400 + idx * 100);
+        });
+        pathObs.unobserve(e.target);
+      });
+    }, { threshold: 0.3 });
+    const pathEl = document.getElementById('pathScreen');
+    if (pathEl) pathObs.observe(pathEl);
+
+    // Streak animation
+    const streakObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const grid = document.getElementById('streakGrid');
+        const count = document.getElementById('streakCount');
+        for (let i = 0; i < 21; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'streak-dot';
+          grid.appendChild(dot);
+        }
+        const dots = grid.querySelectorAll('.streak-dot');
+        const target = 7;
+        dots.forEach((dot, i) => {
+          if (i < target) setTimeout(() => dot.classList.add('active'), 300 + i * 100);
+        });
+        const start = performance.now();
+        const animate = now => {
+          const p = Math.min((now - start) / 1000, 1);
+          count.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(animate);
+        };
+        setTimeout(() => requestAnimationFrame(animate), 200);
+        streakObs.unobserve(e.target);
+      });
+    }, { threshold: 0.4 });
+    const streakEl = document.getElementById('streakGrid');
+    if (streakEl) streakObs.observe(streakEl);
 
     // Interactive card reveal demo
     let demoOpen = false;
