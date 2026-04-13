@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — Bodhi</title>
+  <meta name="description" content="Terms of Use for the Bodhi iOS application." />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --deep-brown: #3E2723;
+      --warm-amber: #8D6E2F;
+      --earth-green: #5B7553;
+      --soft-clay: #D4C9B8;
+      --sand: #F5F0E6;
+      --cream: #FBF7EF;
+      --parchment: #F0EBE0;
+      --muted: #7A7067;
+      --text-body: #5A534A;
+      --text-hint: #B4A898;
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans: 'Space Grotesk', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--text-body); background: var(--sand); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+
+    /* Nav */
+    .privacy-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(245,240,230,0.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(212,201,184,0.4);
+    }
+    .privacy-nav .nav-inner {
+      max-width: 800px; margin: 0 auto; padding: 14px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .privacy-nav .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .privacy-nav .nav-logo img { width: 28px; height: 28px; border-radius: 7px; }
+    .privacy-nav .nav-logo span { font-family: var(--serif); font-weight: 600; font-size: 1.1rem; color: var(--deep-brown); }
+    .privacy-nav .back-link { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .privacy-nav .back-link:hover { color: var(--earth-green); }
+
+    /* Content */
+    .privacy-content {
+      max-width: 800px; margin: 0 auto;
+      padding: 100px 28px 60px;
+    }
+    @media (max-width: 600px) { .privacy-content { padding: 80px 20px 40px; } }
+
+    .privacy-content h1 {
+      font-family: var(--serif); font-size: 28px; font-weight: 600;
+      color: var(--deep-brown); margin-bottom: 8px;
+    }
+    .privacy-content .updated {
+      font-size: 13px; color: var(--text-hint); margin-bottom: 40px;
+    }
+
+    /* Table of contents */
+    .toc {
+      background: var(--cream); border: 1px solid rgba(212,201,184,0.4);
+      border-radius: 12px; padding: 24px 28px; margin-bottom: 40px;
+    }
+    .toc-title { font-family: var(--sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-hint); margin-bottom: 12px; }
+    .toc ol { list-style: none; counter-reset: toc; }
+    .toc ol li { counter-increment: toc; margin-bottom: 6px; }
+    .toc ol li a {
+      font-size: 0.88rem; color: var(--text-body); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: baseline; gap: 8px;
+    }
+    .toc ol li a::before { content: counter(toc) "."; font-size: 0.78rem; color: var(--text-hint); min-width: 20px; }
+    .toc ol li a:hover { color: var(--earth-green); }
+
+    /* Sections */
+    .privacy-content h2 {
+      font-family: var(--serif); font-size: 20px; font-weight: 600;
+      color: var(--deep-brown); margin-top: 44px; margin-bottom: 8px;
+    }
+    .privacy-content .in-short {
+      font-family: var(--serif); font-style: italic; font-size: 0.9rem;
+      color: var(--warm-amber); margin-bottom: 16px; line-height: 1.6;
+    }
+    .privacy-content p { font-size: 15px; margin-bottom: 14px; line-height: 1.8; }
+    .privacy-content ul { margin: 8px 0 16px; list-style: none; }
+    .privacy-content ul li {
+      position: relative; padding-left: 18px; margin-bottom: 8px;
+      font-size: 14px; line-height: 1.7;
+    }
+    .privacy-content ul li::before {
+      content: ''; position: absolute; left: 0; top: 9px;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--earth-green); opacity: 0.5;
+    }
+    .privacy-content a { color: var(--earth-green); text-decoration: none; border-bottom: 1px solid rgba(91,117,83,0.3); transition: border-color 0.2s; }
+    .privacy-content a:hover { border-color: var(--earth-green); }
+
+    /* Divider */
+    .section-line { width: 36px; height: 1.5px; background: var(--soft-clay); margin: 44px 0; }
+
+    /* Contact box */
+    .contact-box {
+      background: var(--cream); border: 1px solid rgba(212,201,184,0.4);
+      border-radius: 12px; padding: 28px; margin-top: 36px;
+    }
+    .contact-box h3 { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--deep-brown); margin-bottom: 10px; }
+    .contact-box p { font-size: 14px; margin-bottom: 8px; }
+
+    /* Footer */
+    .privacy-footer {
+      max-width: 800px; margin: 0 auto;
+      padding: 32px 28px; border-top: 1px solid var(--soft-clay);
+      text-align: center; font-size: 13px; color: var(--text-hint);
+    }
+    .privacy-footer a { color: var(--text-hint); text-decoration: none; transition: color 0.2s; border: none; }
+    .privacy-footer a:hover { color: var(--earth-green); }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="privacy-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="icon.png" alt="Bodhi" />
+        <span>Bodhi</span>
+      </a>
+      <a href="index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <article class="privacy-content">
+    <h1>Terms of Use</h1>
+    <p class="updated">Last updated: 13 April 2026</p>
+
+    <!-- TOC -->
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#agreement">Agreement to terms</a></li>
+        <li><a href="#description">App description</a></li>
+        <li><a href="#subscriptions">Subscriptions and payments</a></li>
+        <li><a href="#account">Your account</a></li>
+        <li><a href="#conduct">Acceptable use</a></li>
+        <li><a href="#ip">Intellectual property</a></li>
+        <li><a href="#disclaimer">Disclaimer of warranties</a></li>
+        <li><a href="#liability">Limitation of liability</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#changes">Changes to these terms</a></li>
+        <li><a href="#governing">Governing law</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 -->
+    <h2 id="agreement">1. Agreement to terms</h2>
+    <p class="in-short">In Short: By using Bodhi you agree to these terms.</p>
+    <p>By downloading, installing, or using the Bodhi application ("the App"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 2 -->
+    <h2 id="description">2. App description</h2>
+    <p class="in-short">In Short: Bodhi delivers daily Buddhist teachings to support your mindfulness practice.</p>
+    <p>Bodhi is an iOS application that provides daily Buddhist wisdom cards, allowing you to save teachings, write reflections, and build a daily practice streak. Content is curated for educational and inspirational purposes.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 3 -->
+    <h2 id="subscriptions">3. Subscriptions and payments</h2>
+    <p class="in-short">In Short: Subscriptions are billed through Apple and renew automatically until cancelled.</p>
+    <p><strong>Billing.</strong> Bodhi offers auto-renewable subscriptions. All payments are processed by Apple through your App Store account. Prices are displayed in the App before purchase and may vary by region.</p>
+    <p><strong>Free trial.</strong> If a free trial is offered, it will convert to a paid subscription at the end of the trial period unless cancelled at least 24 hours before the trial expires.</p>
+    <p><strong>Renewal.</strong> Subscriptions automatically renew unless auto-renew is turned off at least 24 hours before the end of the current billing period. Your App Store account will be charged for renewal within 24 hours prior to the end of the current period.</p>
+    <p><strong>Managing and cancelling.</strong> You can manage or cancel your subscription at any time through your device's Settings &gt; Apple ID &gt; Subscriptions. Cancellation takes effect at the end of the current billing period — you will retain access until then.</p>
+    <p><strong>Refunds.</strong> All purchases are made through Apple and are subject to Apple's refund policies. We cannot issue refunds directly. To request a refund, visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 4 -->
+    <h2 id="account">4. Your account</h2>
+    <p class="in-short">In Short: You are responsible for keeping your account secure.</p>
+    <p>You may create an account using email or Apple Sign-In. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. Please notify us immediately if you suspect unauthorised access.</p>
+    <p>You may request deletion of your account and all associated data at any time by contacting us at <a href="mailto:cheuk.coding@gmail.com">cheuk.coding@gmail.com</a>. Account data will be removed within 30 days of the request.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 5 -->
+    <h2 id="conduct">5. Acceptable use</h2>
+    <p class="in-short">In Short: Use the App respectfully and lawfully.</p>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the App for any unlawful purpose</li>
+      <li>Attempt to reverse-engineer, decompile, or disassemble the App</li>
+      <li>Reproduce, distribute, or publicly display App content without permission</li>
+      <li>Interfere with or disrupt the App's servers or infrastructure</li>
+      <li>Use automated systems to access the App in a manner that exceeds reasonable use</li>
+    </ul>
+
+    <div class="section-line"></div>
+
+    <!-- 6 -->
+    <h2 id="ip">6. Intellectual property</h2>
+    <p class="in-short">In Short: The App and its content are protected by intellectual property laws.</p>
+    <p>All content within the App — including but not limited to text, graphics, icons, images, and software — is the property of Bodhi or its content licensors and is protected by applicable copyright and intellectual property laws. Your personal reflections remain your own.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 7 -->
+    <h2 id="disclaimer">7. Disclaimer of warranties</h2>
+    <p class="in-short">In Short: The App is provided "as is" without guarantees.</p>
+    <p>The App is provided on an "as is" and "as available" basis. To the fullest extent permitted by law, we disclaim all warranties, express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the App will be uninterrupted, error-free, or free of harmful components.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 8 -->
+    <h2 id="liability">8. Limitation of liability</h2>
+    <p class="in-short">In Short: Our liability is limited to the maximum extent permitted by law.</p>
+    <p>To the fullest extent permitted by applicable law, Bodhi and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, or goodwill arising out of your use of the App.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 9 -->
+    <h2 id="termination">9. Termination</h2>
+    <p class="in-short">In Short: We may suspend access if these terms are violated.</p>
+    <p>We reserve the right to suspend or terminate your access to the App at our sole discretion, without notice, if you violate these Terms. Upon termination, your right to use the App will cease immediately. Provisions that by their nature should survive termination will remain in effect.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 10 -->
+    <h2 id="changes">10. Changes to these terms</h2>
+    <p class="in-short">In Short: We will update the date at the top when changes are made.</p>
+    <p>We may revise these Terms from time to time. Material changes will be communicated through the App or by updating the date above. Your continued use of the App following any changes constitutes acceptance of the revised Terms.</p>
+
+    <div class="section-line"></div>
+
+    <!-- 11 -->
+    <h2 id="governing">11. Governing law</h2>
+    <p class="in-short">In Short: These terms are governed by the laws of England and Wales.</p>
+    <p>These Terms shall be governed by and construed in accordance with the laws of England and Wales. Any disputes arising from these Terms or your use of the App shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+
+    <div class="section-line"></div>
+
+    <!-- Contact -->
+    <div class="contact-box" id="contact">
+      <h3>Questions?</h3>
+      <p>If you have any questions about these Terms of Use, we're happy to help.</p>
+      <p><a href="mailto:cheuk.coding@gmail.com">cheuk.coding@gmail.com</a></p>
+    </div>
+
+  </article>
+
+  <!-- Footer -->
+  <div class="privacy-footer">
+    &copy; 2025 Bodhi &middot; <a href="index.html">Home</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a>
+  </div>
+
+</body>
+</html>
